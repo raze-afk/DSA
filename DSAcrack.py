@@ -69,7 +69,7 @@ if __name__ == "__main__" :
 
 # ============================================================
 #
-#  Begin ATTACK Code :)
+#  Begin ATTACK Code :) I love dsa
 #
 # ============================================================
 	LOG.debug("---- attack weak coefficient k ----")
