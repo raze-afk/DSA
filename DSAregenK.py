@@ -1,4 +1,22 @@
-          sample is of format ( (r,s),hash(data), pubkey)
+from Crypto.Random import random
+from Crypto.PublicKey import DSA
+from Crypto.PublicKey.pubkey import bignum,inverse
+from Crypto.Hash import SHA
+from Crypto.Util.number import bytes_to_long
+
+import logging
+LOG = logging.getLogger('DSAregenK')
+
+
+class DSAregenK(object):
+    def __init__(self,pubkey):
+        self.samples = {}
+        self.pubkey = pubkey
+        LOG.debug("+ set: pubkey = %s"%pubkey)
+    
+    def add(self,signature,hash):
+        '''
+            sample is of format ( (r,s),hash(data), pubkey)
                        signature params,hashed_data
                        individual pubkey
         '''
@@ -127,4 +145,4 @@ if __name__=="__main__":
     pow(g,k,p)%q
     '''
     trials = 2**15
-    print trials," trials =>", timeit.timeit(code,number=tr
+    print trials," trials =>", timeit.timeit(code,number=trials),"s "
