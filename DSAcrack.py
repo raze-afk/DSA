@@ -16,7 +16,12 @@ def read_file () :
 	return res
 
 def public_key () :
-	priv_key = None
+	'''
+	public_key =	y: public exponent
+					g: group generator
+					p: prime
+					q: subprime
+	'''
 	LOG.info("insert y: ")
 	y = input()
 	LOG.info("insert g: ")
@@ -71,7 +76,7 @@ if __name__ == "__main__" :
 	a = DSAregenK(pubkey = pk)
 	for h, (r,s) in data :
 		a.add( (r,s),h )
-	priv_key = ""
+	priv_key = None
 	for re_privkey in a.run(asDSAobj = True):
 		LOG.info( "Reconstructed private_key: %s | x=%s"%(repr(re_privkey),re_privkey.x))
 		priv_key = re_privkey
