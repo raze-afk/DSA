@@ -16,12 +16,7 @@ def read_file () :
 	return res
 
 def public_key () :
-	'''
-	public_key =	y: public exponent
-					g: group generator
-					p: prime
-					q: subprime
-	'''
+	priv_key = None
 	LOG.info("insert y: ")
 	y = input()
 	LOG.info("insert g: ")
